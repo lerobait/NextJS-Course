@@ -11,9 +11,10 @@ import {
   Form,
 } from "@/lib/nextui";
 import * as actions from "@/actions";
+import FromButton from "@/components/common/form-button";
 
 export default function TopicCreateForm() {
-  const [formState, action] = useActionState(actions.createTopic, {
+  const [formState, action, isPending] = useActionState(actions.createTopic, {
     errors: {},
   });
 
@@ -57,7 +58,7 @@ export default function TopicCreateForm() {
               </div>
             ) : null}
 
-            <Button type="submit">Submit</Button>
+            <FromButton isLoading={isPending}>Save</FromButton>
           </div>
         </Form>
       </PopoverContent>
